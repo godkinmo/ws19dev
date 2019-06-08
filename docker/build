@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker build -f app/Dockerfile -t ws19/app:latest ./app
+docker build -f node/Dockerfile -t ws19/node:latest ./node

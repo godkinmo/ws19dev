@@ -1,0 +1,26 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: ws19/app
+    volumes:
+     - ./projects:/var/www/html/projects
+    networks:
+     - sdnet
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: ws19/node
+    volumes:
+     - ./projects:/var/www/html/projects
+    networks:
+     - sdnet
+  mysql:
+    image: mysql:5.7
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - sdnet
